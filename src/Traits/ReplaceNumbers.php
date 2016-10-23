@@ -1,0 +1,91 @@
+<?php
+
+namespace Mdaliyan\FarsiRequest\Traits;
+
+Trait ReplaceNumbers
+{
+    /*
+     *  These Variables should be added to the request class
+     */
+    //private $mustHaveEnglishNumbers = ['id'];
+    //private $mustHaveFarsiNumbers = [];
+
+    private $farsiNumbers = ['۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹', '۰'];
+    private $englishNumbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+
+    protected function getValidatorInstance()
+    {
+        $this->sanitize();
+
+        return parent::getValidatorInstance();
+    }
+
+    private function sanitize()
+    {
+        if (isset($this->mustHaveEnglishNumbers) && count($this->mustHaveEnglishNumbers)) {
+
+            $this->replace_in_attributes(
+                $this->farsiNumbers,
+                $this->englishNumbers,
+                $this->mustHaveEnglishNumbers);
+        }
+
+        if (isset($this->mustHaveFarsiNumbers) && count($this->mustHaveFarsiNumbers)) {
+
+            $this->replace_in_attributes(
+                $this->englishNumbers,
+                $this->farsiNumbers,
+                $this->mustHaveFarsiNumbers);
+        }
+    }
+
+    private function replace_in_attributes($these, $with_these, $in_these_attributes)
+    {
+        $parameters = $this->only($in_these_attributes);
+
+        // Todo: some keys might end up being null. try to remove them later
+
+        array_walk($parameters,
+            function ($value, $key) use (&$edited, $these, $with_these) {
+
+                preg_match_all('/<[\S|\/][^>]+\/?>/i', $value, $matches);
+                $html_tags = array_flatten($matches);
+
+                if (count($html_tags)) {
+                    $keys = $this->replaceableKeys(count($html_tags));
+
+                    // Replace Html Tags with unique Keys
+                    $replaced = str_replace($html_tags, $keys, $value);
+
+                    // Do desired character replacement
+                    $replaced = str_replace($these, $with_these, $replaced);
+
+                    // Replace unique Keys with original html tag
+                    $edited[$key] = str_replace($keys, $html_tags, $replaced);
+
+                } else {
+
+                    $edited[$key] = str_replace($these, $with_these, $value);
+                }
+            });
+
+        $this->merge($edited);
+    }
+
+    private function replaceableKeys($count)
+    {
+        foreach ($this->generateReplaceableKeys($count) as $value) {
+            $return[] = "<%&!%" . $value . "%!%>";
+        }
+
+        return $return;
+    }
+
+    private function generateReplaceableKeys($count)
+    {
+        $Char = 'RANDOM';
+        for ($i = 0; $i !== $count; $i++) {
+            yield ++$Char;
+        }
+    }
+}

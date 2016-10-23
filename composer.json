@@ -1,0 +1,34 @@
+{
+  "name": "mdaliyan/farsi-request",
+  "description": "Replaces Arabic characters with valid Farsi characters in Laravel Requests.",
+  "license": "MIT",
+  "keywords": [
+    "php",
+    "laravel",
+    "farsi",
+    "persian",
+    "request",
+    "characters"
+  ],
+  "authors": [
+    {
+      "name": "Mohammad Aliyan",
+      "email": "md.aliyan@gmail.com",
+      "homepage": "https://github.com/mdaliyan/farsi-request",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^5.5.0|^7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Mdaliyan\\FarsiRequest\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Mdaliyan\\FarsiRequest\\": "tests"
+    }
+  }
+}
