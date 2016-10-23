@@ -5,7 +5,7 @@ namespace Mdaliyan\FarsiRequest\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class PipeRequest
+class ReplaceArabicCharacters
 {
     private $arabicCharacters = ['ي', 'ك', 'ة', '٤', '٥', '٦'];
     private $farsiCharacters = ['ی', 'ک', 'ه', '۴', '۵', '۶'];

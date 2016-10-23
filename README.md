@@ -24,7 +24,7 @@ To achieve this, you should add this middleware to the kernel.
 ...
 protected $middleware = [
     ...
-   \Mdaliyan\FarsiRequest\Middleware\PipeStrings::class,
+   \Mdaliyan\FarsiRequest\Middleware\ReplaceArabicCharacters::class,
 ];
 ```
 
