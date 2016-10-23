@@ -40,7 +40,7 @@ class SomeRequest extends FormRequest
     use ReplaceNumbers;
 
     private $mustHaveEnglishNumbers = ['id','email'];
-    private $mustHavePersianNumbers = ['post_content','author_name'];
+    private $mustHaveFarsiNumbers = ['post_content','author_name'];
 
     /**
      * Determine if the user is authorized to make this request.
