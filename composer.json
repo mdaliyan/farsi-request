@@ -2,7 +2,7 @@
   "name": "mdaliyan/farsi-request",
   "description": "Replaces Arabic characters with valid Farsi characters in Laravel Requests.",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "php",
     "laravel",
