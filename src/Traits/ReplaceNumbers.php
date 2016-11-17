@@ -41,35 +41,40 @@ Trait ReplaceNumbers
 
     private function replace_in_attributes($these, $with_these, $in_these_attributes)
     {
-        $parameters = $this->only($in_these_attributes);
-
-        // Todo: some keys might end up being null. try to remove them later
-
-        array_walk($parameters,
-            function ($value, $key) use (&$edited, $these, $with_these) {
-
-                preg_match_all('/<[\S|\/][^>]+\/?>/i', $value, $matches);
-                $html_tags = array_flatten($matches);
-
-                if (count($html_tags)) {
-                    $keys = $this->replaceableKeys(count($html_tags));
-
-                    // Replace Html Tags with unique Keys
-                    $replaced = str_replace($html_tags, $keys, $value);
-
-                    // Do desired character replacement
-                    $replaced = str_replace($these, $with_these, $replaced);
-
-                    // Replace unique Keys with original html tag
-                    $edited[$key] = str_replace($keys, $html_tags, $replaced);
-
-                } else {
-
-                    $edited[$key] = str_replace($these, $with_these, $value);
-                }
+        $parameters = array_filter($this->only($in_these_attributes),
+            function ($value) {
+                return !is_null($value);
             });
 
-        $this->merge($edited);
+        array_walk($parameters, function ($value, $key) use (&$edited, $these, $with_these) {
+
+            preg_match_all('/<[\S|\/][^>]+\/?>/i', $value, $matches);
+
+            $html_tags = array_flatten($matches);
+
+            if (count($html_tags)) {
+
+                $keys = $this->replaceableKeys(count($html_tags));
+
+                // Replace Html Tags with unique Keys
+                $replaced = str_replace($html_tags, $keys, $value);
+
+                // Do desired character replacement
+                $replaced = str_replace($these, $with_these, $replaced);
+
+                // Replace unique Keys with original html tags
+                $edited[$key] = str_replace($keys, $html_tags, $replaced);
+
+            } else {
+
+                $edited[$key] = str_replace($these, $with_these, $value);
+            }
+        });
+
+        if (count($edited)) {
+
+            $this->merge($edited);
+        }
     }
 
     private function replaceableKeys($count)
