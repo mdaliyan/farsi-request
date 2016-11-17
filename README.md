@@ -9,11 +9,8 @@ content. This package does two things for you:
 characters like ی ک ه ۴ ۵ ۶, in all your requests parameters automatically.
 
 - Makes you able to define which request parameters must have
-Farsi numbers which must have English numbers.
-<br/><br/>
-<small>
-For example, Product names like R2D2 should never have farsi numbers, right?
-</small>
+Farsi numbers which must have English numbers. <br/><br/> For example, Product names like R2D2 should never have farsi numbers, right?
+
 ## Installation
 
 You can install the package via composer:
