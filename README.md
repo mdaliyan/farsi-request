@@ -1,12 +1,19 @@
 # Farsi Request
 
-This package does 2 things so far.
+As an Iranian developer you might end up having some users who use 
+Arabic keyboard. These users may cause problems to your content 
+or experience some confusion while searching among your
+content. This package does two things for you:
 
-- Replaces invalid Arabic characters like ي ك ة ٤ ٥ ٦ with valid Farsi
-characters like ی ک ه ۴ ۵ ۶, in all your requests automatically.
-- Makes you able to define which request parameters should have
-Farsi numbers which should have English numbers.
+- Replaces Arabic characters like ي ك ة ٤ ٥ ٦ with Farsi
+characters like ی ک ه ۴ ۵ ۶, in all your requests parameters automatically.
 
+- Makes you able to define which request parameters must have
+Farsi numbers which must have English numbers.
+<br/><br/>
+<small>
+For example, Product names like R2D2 should never have farsi numbers, right?
+</small>
 ## Installation
 
 You can install the package via composer:
