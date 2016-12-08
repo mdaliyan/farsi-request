@@ -43,7 +43,7 @@ class SomeRequest extends FormRequest
 {
     use ReplaceNumbers;
 
-    private $mustHaveEnglishNumbers = ['id','email'];
+    private $mustHaveEnglishNumbers = ['id','email','phone_number'];
     private $mustHaveFarsiNumbers = ['post_content','author_name'];
 
     /**
