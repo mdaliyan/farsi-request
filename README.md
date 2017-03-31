@@ -5,11 +5,11 @@ Arabic keyboard. These users may cause problems to your content
 or experience some confusion while searching among your
 content. This package does two things for you:
 
-- Replaces Arabic characters like ي ك ة ٤ ٥ ٦ with Farsi
+1. Replaces Arabic characters like ي ك ة ٤ ٥ ٦ with Farsi
 characters like ی ک ه ۴ ۵ ۶, in all your requests parameters automatically.
 
-- Makes you able to define which request parameters must have
-Farsi numbers which must have English numbers. <br/><br/> For example, Product names like R2D2 should never have farsi numbers, right?
+2. Makes you able to define which request parameters must have
+Farsi numbers which must have English numbers. <br/> For example, Product names like R2D2 should never have farsi numbers, right?
 
 ## Installation
 
@@ -20,8 +20,8 @@ $ composer require mdaliyan/farsi-request
 
 ## Usage
 
-##### Automatic character replacement
-To achieve this, you should add this middleware to the kernel.
+#### 1. Auto-Replace arabic characters
+To activate this, you should add this middleware to the kernel.
 ```php
 // app/Http/Kernel.php
 
@@ -32,8 +32,8 @@ protected $middleware = [
 ];
 ```
 
-##### Define language characters for request parameters
-To achieve this, you should add a trait and two private properties to your Request Class.
+#### 2. Auto-Replace numbers in request parameters
+To use this, you should add a trait and two private properties to your Request Class.
 Then add your parameters to these properties.
 
 ```php
@@ -54,6 +54,7 @@ class SomeRequest extends FormRequest
     {
         return true;
     }
+    ...
 ```
 This functionality skips characters inside HTML tags.
 <br/>for example, if your "post_content" has something like
