@@ -2,7 +2,6 @@
   "name": "mdaliyan/farsi-request",
   "description": "A (Laravel Request Transformer) that replaces Arabic characters with Farsi characters, and auto-converts numbers in parameters that you want.",
   "license": "MIT",
-  "version": "1.0.1",
   "keywords": [
     "php",
     "laravel",
