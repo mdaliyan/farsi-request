@@ -48,7 +48,7 @@ Trait ReplaceNumbers
 
         array_walk($parameters, function ($value, $key) use (&$edited, $these, $with_these) {
 
-            preg_match_all('/<[\S|\/][^>]+\/?>/i', $value, $matches);
+            preg_match_all('/<[\S|\/][^>]*\/?>/i', $value, $matches);
 
             $html_tags = array_flatten($matches);
 
