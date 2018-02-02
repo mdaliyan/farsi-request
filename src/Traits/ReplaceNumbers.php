@@ -79,10 +79,10 @@ Trait ReplaceNumbers
 
     private function replaceableKeys($count)
     {
+        $return = [];
         foreach ($this->generateReplaceableKeys($count) as $value) {
             $return[] = "<%&!%" . $value . "%!%>";
         }
-
         return $return;
     }
 
