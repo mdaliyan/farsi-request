@@ -73,6 +73,7 @@ Trait ReplaceNumbers
 
         if (count($edited)) {
 
+            $this->request->add($edited);
             $this->merge($edited);
         }
     }
