@@ -9,8 +9,8 @@ Route::get('/', function (Request $r) {
 
 Route::get('/form', function (TestRequest $r) {
 
-//    private $mustHaveEnglishNumbers = ['id','email','phone_number'];
-//    private $mustHaveFarsiNumbers = ['post_content','author_name'];
+//    private $mustHaveEnglishNumbers = ['phone_number'];
+//    private $mustHaveFarsiNumbers = ['post_content'];
 
     return "phone_number=" . $r->get("phone_number") .
         "post_content=" . $r->get("post_content");
