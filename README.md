@@ -1,6 +1,8 @@
 # Farsi Request
 
 [![Build Status](https://travis-ci.org/mdaliyan/farsi-request.svg?branch=master)](https://travis-ci.org/mdaliyan/farsi-request)
+[![Latest Stable Version](https://poser.pugx.org/mdaliyan/farsi-request/version)](https://packagist.org/packages/mdaliyan/farsi-request)
+[![License](https://poser.pugx.org/mdaliyan/farsi-request/license)](https://packagist.org/packages/mdaliyan/farsi-request)
 
 Farsi Request replaces arabic characters like **ي ك ة ٤ ٥ ٦** with Farsi
 characters like **ی ک ه ۴ ۵ ۶** in all your requests parameters automatically.
