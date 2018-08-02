@@ -22,6 +22,8 @@ class ReplaceArabicCharacters
                 return is_string($value);
             });
 
+        $edited = [];
+
         array_walk($parameters, function ($value, $key) use (&$edited) {
 
             $edited[$key] = $this->replaceCharacters($value);
