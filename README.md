@@ -1,7 +1,7 @@
 # Farsi Request
 
-Farsi Request converts arabic characters like ي ك ة ٤ ٥ ٦ with Farsi
-characters like ی ک ه ۴ ۵ ۶, in all your requests parameters automatically.
+Farsi Request replaces arabic characters like **ي ك ة ٤ ٥ ٦** with Farsi
+characters like **ی ک ه ۴ ۵ ۶** in all your requests parameters automatically.
 
 If you are building a farsi website you might end up having some users 
 who use Arabic keyboard. These users may cause problems to your content 
