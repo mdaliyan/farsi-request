@@ -9,9 +9,14 @@ env:
   - LARAVEL_VERSION=5.4
   - LARAVEL_VERSION=5.5
   - LARAVEL_VERSION=5.6
-  
+
 directories:
   - $HOME/.composer/cache/files
+  
+cache:
+  directories:
+  - .autoconf
+  - $HOME/.m2
 
 matrix:
   fast_finish: true
