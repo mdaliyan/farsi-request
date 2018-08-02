@@ -22,6 +22,7 @@ class FarsiRequestTest extends TestCase
     {
         $response = $this->get('/form?phone_number=+۹۸۹۱۲۰۰۰۰۰۰۰&post_content=قرن 21');
 
+        $response->assertStatus(200);
         $response->assertSee("phone_number=989120000000");
         $response->assertSee("post_content=قرن ۲۱");
     }

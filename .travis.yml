@@ -6,6 +6,7 @@ php:
   - 7.2
 
 env:
+  - LARAVEL_VERSION=5.4
   - LARAVEL_VERSION=5.5
   - LARAVEL_VERSION=5.6
 
@@ -26,9 +27,9 @@ before_script:
   - composer require mdaliyan/farsi-request dev-master
   - sed -i "s/protected \$middleware = \[/protected \$middleware = \[\n\t\t\\\\Mdaliyan\\\\FarsiRequest\\\\Middleware\\\\ReplaceArabicCharacters::class,/" ./app/Http/Kernel.php
   - mkdir ./app/Http/Requests
-  - mv ./vendor/mdaliyan/farsi-request/tests/${LARAVEL_VERSION}/web.php ./routes
-  - mv ./vendor/mdaliyan/farsi-request/tests/${LARAVEL_VERSION}/TestRequest.php ./app/Http/Requests
-  - mv ./vendor/mdaliyan/farsi-request/tests/${LARAVEL_VERSION}/FarsiRequestTest.php ./tests/Feature/
+  - mv ./vendor/mdaliyan/farsi-request/tests/web.php ./routes
+  - mv ./vendor/mdaliyan/farsi-request/tests/TestRequest.php ./app/Http/Requests
+  - mv ./vendor/mdaliyan/farsi-request/tests/FarsiRequestTest.php ./tests/Feature/
 
 script:
   - phpunit
