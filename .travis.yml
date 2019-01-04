@@ -5,6 +5,7 @@ php:
   - 7.1
   - 7.2
 
+# tested on laravel 5.4 ~ 5.7
 env:
   - LARAVEL_VERSION=5.4
   - LARAVEL_VERSION=5.5
