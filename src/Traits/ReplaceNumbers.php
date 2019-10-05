@@ -50,7 +50,7 @@ Trait ReplaceNumbers
 
             preg_match_all('/<[\S|\/][^>]*\/?>/i', $value, $matches);
 
-            $html_tags = array_flatten($matches);
+            $html_tags = $this->flatten($matches);
 
             if (count($html_tags)) {
 
@@ -94,4 +94,28 @@ Trait ReplaceNumbers
             yield ++$Char;
         }
     }
+    
+    private function flatten($array, $depth = INF)
+    {
+        $result = [];
+
+        foreach ($array as $item) {
+            $item = $item instanceof Collection ? $item->all() : $item;
+
+            if (! is_array($item)) {
+                $result[] = $item;
+            } else {
+                $values = $depth === 1
+                    ? array_values($item)
+                    : static::flatten($item, $depth - 1);
+
+                foreach ($values as $value) {
+                    $result[] = $value;
+                }
+            }
+        }
+
+        return $result;
+    }
+
 }
