@@ -54,10 +54,12 @@ before_script:
   - cd ./laravel
   - composer require mdaliyan/farsi-request dev-master
   - sed -i "s/protected \$middleware = \[/protected \$middleware = \[\n\t\t\\\\Mdaliyan\\\\FarsiRequest\\\\Middleware\\\\ReplaceArabicCharacters::class,/" ./app/Http/Kernel.php
-  - mkdir app/Http/Requests
+  - cat ./app/Http/Kernel.php
+  - mkdir -p ./app/Http/Requests
   - cp ./vendor/mdaliyan/farsi-request/tests/web.php ./routes
   - cp ./vendor/mdaliyan/farsi-request/tests/TestRequest.php ./app/Http/Requests
   - cp ./vendor/mdaliyan/farsi-request/tests/FarsiRequestTest.php ./tests/Feature/
+  - ls -l ./app/Http/Requests
 
 script:
   - ./vendor/bin/phpunit
