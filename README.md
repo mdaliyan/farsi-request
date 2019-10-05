@@ -14,8 +14,6 @@ or experience some confusion while searching among your content.
 `farsi-request` is tested on laravel 5.x && 6.x
 
 ### Features
-This package does two things for you:
-
 1. __Replaces Arabic characters with farsi standard characters__
 
 2. __Automatically Converts Farsi or English Numbers to each other__ in your desired 
