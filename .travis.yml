@@ -6,7 +6,6 @@ php:
   - 7.2
   - 7.3
 
-# tested on laravel 5.x && 6.x
 env:
   - LARAVEL_VERSION=5.4
   - LARAVEL_VERSION=5.5
@@ -17,7 +16,7 @@ env:
 
 directories:
   - $HOME/.composer/cache/files
-  
+
 cache:
   directories:
   - .autoconf
@@ -25,6 +24,7 @@ cache:
 
 matrix:
   fast_finish: true
+  exclude:
     - php: 5.6
       env: LARAVEL_VERSION=6.0
     - php: 5.6
@@ -35,6 +35,7 @@ matrix:
       env: LARAVEL_VERSION=5.6
     - php: 5.6
       env: LARAVEL_VERSION=5.5
+      
     - php: 7.0
       env: LARAVEL_VERSION=6.0
     - php: 7.0
@@ -43,9 +44,10 @@ matrix:
       env: LARAVEL_VERSION=5.7
     - php: 7.0
       env: LARAVEL_VERSION=5.6
+      
     - php: 7.1
       env: LARAVEL_VERSION=6.0
-      
+
 before_script:
   - travis_retry composer self-update
   - if [ "$LARAVEL_VERSION" != "" ]; then composer create-project "laravel/laravel:${LARAVEL_VERSION}.*"; fi;
@@ -53,10 +55,9 @@ before_script:
   - composer require mdaliyan/farsi-request dev-master
   - sed -i "s/protected \$middleware = \[/protected \$middleware = \[\n\t\t\\\\Mdaliyan\\\\FarsiRequest\\\\Middleware\\\\ReplaceArabicCharacters::class,/" ./app/Http/Kernel.php
   - mkdir app/Http/Requests
-  - mv ./vendor/mdaliyan/farsi-request/tests/web.php ./routes
-  - mv ./vendor/mdaliyan/farsi-request/tests/TestRequest.php ./app/Http/Requests
-  - mv ./vendor/mdaliyan/farsi-request/tests/FarsiRequestTest.php ./tests/Feature/
-
+  - cp ./vendor/mdaliyan/farsi-request/tests/web.php ./routes
+  - cp ./vendor/mdaliyan/farsi-request/tests/TestRequest.php ./app/Http/Requests
+  - cp ./vendor/mdaliyan/farsi-request/tests/FarsiRequestTest.php ./tests/Feature/
 
 script:
   - ./vendor/bin/phpunit
