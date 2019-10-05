@@ -53,4 +53,4 @@ before_script:
   - mv ./vendor/mdaliyan/farsi-request/tests/FarsiRequestTest.php ./tests/Feature/
 
 script:
-  - phpunit
+  - ./vendor/bin/phpunit
