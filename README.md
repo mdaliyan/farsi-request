@@ -11,7 +11,7 @@ who use Arabic keyboard. These users may cause problems to your content
 or experience some confusion while searching among your content. 
 
 ### Tested 
-`farsi-request` is tested on laravel 5.x && __support for 6.x will be ready soon__
+`farsi-request` is tested on laravel 5.x && 6.x
 
 ### Features
 This package does two things for you:
