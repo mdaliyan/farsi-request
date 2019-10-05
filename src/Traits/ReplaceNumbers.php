@@ -84,6 +84,7 @@ Trait ReplaceNumbers
         foreach ($this->generateReplaceableKeys($count) as $value) {
             $return[] = "<%&!%" . $value . "%!%>";
         }
+        
         return $return;
     }
 
