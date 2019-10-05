@@ -10,6 +10,10 @@ If you are building a farsi website you might end up having some users
 who use Arabic keyboard. These users may cause problems to your content 
 or experience some confusion while searching among your content. 
 
+### Tested 
+`farsi-request` is tested on laravel 5.x && __support for 6.x will be ready soon__
+
+### Features
 This package does two things for you:
 
 1. __Replaces Arabic characters with farsi standard characters__
