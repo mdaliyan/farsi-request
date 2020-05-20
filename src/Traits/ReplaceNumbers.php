@@ -45,6 +45,8 @@ Trait ReplaceNumbers
             function ($value) {
                 return !is_null($value);
             });
+        
+        $edited = [];
 
         array_walk($parameters, function ($value, $key) use (&$edited, $these, $with_these) {
 
